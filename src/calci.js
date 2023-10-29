@@ -28,7 +28,7 @@ export default function Calculator() {
     }, [eqauls]);
     useEffect(() => {
         document.addEventListener('keydown', (e) => {
-            if (!isNaN(+e.key) || e.key === '.') { (currentParamRef.current.includes('.') && e.key === '.') ? addDigits('') : addDigits(e.key) }
+            if (!isNaN(+e.key) || e.key === '.') { (currentParamRef?.current?.includes('.') && e.key === '.') ? addDigits('') : addDigits(e.key) }
             else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') clickOperand(e.key)
             else if (e.key === 'Backspace' || e.key === "Delete") deletenum()
             else if (e.key === "Enter") evaluate()
@@ -156,13 +156,16 @@ export default function Calculator() {
             <h1>Calculator</h1>
             <div className='container'>
                 <div className='output'>
-                    <div  style={{fontSize:
+                    <div  
+                    style={{fontSize:
                      previous.toString().split('').length >= 30 ? '0.8rem'
                      : previous.toString().split('').length >= 20 ? '0.9rem'
                          : previous.toString().split('').length >= 15 ? '1.0rem'
-                             : '1.5rem'}} className='prev-operand'>{previous}<div className="operation">{operand}</div></div>
-                    <div style={{
-                        fontSize: current.toString().split('').length >= 30 ? '1.2rem'
+                             : '1.5rem'}}
+                              className='prev-operand'>{previous}<div className="operation">{operand}</div></div>
+                    <div 
+                    style={{
+                        fontSize: current.toString().split('').length >= 30 ? '0.9rem'
                             : current.toString().split('').length >= 20 ? '1.3rem'
                                 : current.toString().split('').length >= 15 ? '1.8rem'
                                     : '2rem'
