@@ -1,0 +1,112 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+.body{
+    /* background: linear-gradient(to right, #8360c3, #2ebf91); */
+    margin :0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    /* z-index: 100000;
+    background: rgb(88, 18, 18); */
+   
+}
+h1 {
+    
+
+    font-size: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to bottom,  #001303 , #112c02);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    z-index: 999999;
+    cursor: none;
+}
+.container{ 
+    display:grid;
+    grid-template-columns: repeat(4, 5vw);
+    grid-template-rows: minmax(7vh, auto) repeat(6,7vh);
+    padding-top:2rem;
+    /* justify-content: center;
+    align-items: center;
+    
+     */
+     z-index: 999999;
+}
+.span2{
+    grid-column: span 2;
+   
+}
+.output{
+grid-column: 1 /-1;
+grid-row: span 2;
+background-color: rgba(0, 0, 0);
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+justify-content: space-between;
+padding: .75rem;
+word-wrap: break-word;
+word-break: break-all;
+border-radius: 0.9rem;
+
+}
+
+.output .prev-operand{
+    color:rgba(132, 240, 168);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+  
+}
+
+.output .current-operant{
+    color:white;
+    font-size: 1rem;
+   
+}
+.operation{
+    font-size: 1.3rem;
+    color: white;
+}
+.container > button {
+    /* grid-column: ; */
+    grid-row: span 1;
+    cursor: pointer;
+    font-size: 2vw;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgb(107, 104, 104);
+    border-radius: 0.9rem;
+    color: whitesmoke;
+}
+.container >button:hover,
+.container >button:focus{
+    background-color: rgba(255, 255, 255);
+    color: black;
+}
+.container> .colored{
+    background: linear-gradient(#58b163 , #9ad877);
+    color: black;
+}
+.container> .colored:hover{
+    background: linear-gradient(#9ad877 , #58b163);
+}
+.box{
+    display: flex;
+    max-height: 1000px;
+  width: 100vw;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  padding: 10px;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  font-weight: bold;
+  font-size: 16px;
+  border: solid 1px #000;
+}
