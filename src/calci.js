@@ -33,27 +33,28 @@ export default function Calculator() {
             else if (e.key === 'Backspace' || e.key === "Delete") deletenum()
             else if (e.key === "Enter") evaluate()
             else if (e.key === "Escape") clearAll()
-            console.log(e.key, "keyyys")
+            
         }
         )
     }, [])
+  
     const addDigits = (value) => {
-        if(currentParamRef.current.toString().split('').length < 70){
+        if (currentParamRef?.current?.toString()?.split('')?.length < 70) {
 
-            setCurrent((prev) => {
+            setCurrent((current) => {
                 if (equalParamRef.current) {
                     // clearAll()
                     t = [value]
-                    console.log(t, 'clear')
+                  
                 } else {
-                    // console.log(current,'cuurr')
-                    t = [...prev, value]
-                    console.log(t, 'notclear')
+                    
+                    t = [...current, value]
+                    
                 }
-                console.log(t, 'total')
+               
                 const y = t.join().replace(/,/g, "")
-    
-                console.log(y, "current")
+
+                
                 setEquals(false)
                 return y
             })
@@ -64,7 +65,7 @@ export default function Calculator() {
 
 
         setCurrent((current) => {
-            console.log(previous, "previous")
+       
             setprevious((previous) => {
 
                 if (current.length === 0 && value === '-') {
@@ -95,11 +96,11 @@ export default function Calculator() {
 
     const evaluate = () => {
         setEquals(true)
-        console.log(equalParamRef.current, 'equalParamRef')
+        
         let compute = ''
         const prev = parseFloat(previousParamRef.current);
         const curr = parseFloat(currentParamRef.current);
-
+        
         if (operandParamRef.current === "+") {
             compute = prev + curr
         }
@@ -113,29 +114,26 @@ export default function Calculator() {
             compute = prev / curr
         }
         result = compute.toString()
-        console.log(previousParamRef, currentParamRef, result, 'ygyu')
+        
+       
 
-        console.log(current, previous, result, 'ygyu2')
+       
 
-        setCurrent(result)
-
-
-
-        console.log(current, previous, result, 'ygyu3')
         setprevious([])
         setOperand('');
+        setCurrent(compute.toString())
 
 
     }
     const clearAll = () => {
-        console.log('clearAll')
+        
         setCurrent([])
         setprevious([])
         setOperand('')
         setEquals(false)
     }
     const deletenum = () => {
-        console.log(current, "del")
+       
         // if(typeof(current)!=='string'){
         //     current.tostring()
         // }
@@ -144,32 +142,34 @@ export default function Calculator() {
                 const t = prev?.split('')
                 t.pop()
                 const u = t.join().replace(/,/g, "")
-                console.log(u, "ghvhg")
+               
                 return u
             }
         })
     }
-    console.log(previous, "currentOo")
+   
     return (
-        <div style={{zIndex:99999999, position:'relative'}} className="body">
-            <Numbers/>
+        <div style={{ zIndex: 99999999, position: 'relative' }} className="body">
+            <Numbers />
             <h1>Calculator</h1>
             <div className='container'>
                 <div className='output'>
-                    <div  
-                    style={{fontSize:
-                     previous.toString().split('').length >= 30 ? '0.8rem'
-                     : previous.toString().split('').length >= 20 ? '0.9rem'
-                         : previous.toString().split('').length >= 15 ? '1.0rem'
-                             : '1.5rem'}}
-                              className='prev-operand'>{previous}<div className="operation">{operand}</div></div>
-                    <div 
-                    style={{
-                        fontSize: current.toString().split('').length >= 30 ? '0.9rem'
-                            : current.toString().split('').length >= 20 ? '1.3rem'
-                                : current.toString().split('').length >= 15 ? '1.8rem'
-                                    : '2rem'
-                    }}
+                    <div
+                        style={{
+                            fontSize:
+                                previous.toString().split('').length >= 30 ? '0.8rem'
+                                    : previous.toString().split('').length >= 20 ? '0.9rem'
+                                        : previous.toString().split('').length >= 15 ? '1.0rem'
+                                            : '1.5rem'
+                        }}
+                        className='prev-operand'>{previous}<div className="operation">{operand}</div></div>
+                    <div
+                        style={{
+                            fontSize: current?.toString()?.split('')?.length >= 30 ? '0.9rem'
+                                : current?.toString()?.split('')?.length >= 20 ? '1.3rem'
+                                    : current?.toString()?.split('')?.length >= 15 ? '1.8rem'
+                                        : '2rem'
+                        }}
                         className='current-operant'>{current}</div>
                 </div>
 
@@ -196,3 +196,4 @@ export default function Calculator() {
         </div>
     )
 }
+

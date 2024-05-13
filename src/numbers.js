@@ -10,27 +10,21 @@ export default function Numbers() {
   const chars =
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890`~!@#$%^&*()_-+=* /.?.>,<|1234567890ABC";
 
-  // const randomNumbers = () => {
-  //   setNumbers([Math.floor(Math.random() * 100)]);
-  //   // setNumbers([...numbers, t])
-  //   const t = chars.split("");
-  //   setacharacters([...characters, t[numbers], ...characters]);
-  //   console.log(t);
-  // };
+ 
 
   const randomNumbers2 = () => {
     let u = "";
 
-    // console.log(v,'vvv')
-    for (let i = 0; i <= 10000; i++) {
+    
+    for (let i = 0; i <= 100000; i++) {
       let v = Math.floor(Math.random() * chars.length);
       u += chars[v];
-      // if(i%3===0) {setNumbers(true);console.log(numbers, "truee") }else {setNumbers(false)}
+     
     }
     setcharacters(u);
   };
 
-  // console.log(characters, "ugy");
+ 
   return (
     <Box
       onMouseMove={randomNumbers2}
